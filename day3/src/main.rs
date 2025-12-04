@@ -1,6 +1,5 @@
 
 use std::collections::HashMap;
-use std::collections::HashSet;
 
 
 struct BatteryBank {
@@ -74,15 +73,4 @@ fn read_txt_file( path : &str ) -> String {
     let mut contents = String::new();
     file.read_to_string( &mut contents ).unwrap();
     contents
-}
-
-
-
-
-pub fn can_be_typed_words(text: String, broken_letters: String) -> i32 {
-    let brkn: HashSet<char> = broken_letters.chars().collect();
-    
-    let count = text.split_whitespace().filter(|word| word.chars().all(|c| !brkn.contains(&c))).count();
-
-    count as i32
 }
