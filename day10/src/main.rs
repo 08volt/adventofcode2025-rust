@@ -1,17 +1,16 @@
+use std::fs;
 
-fn read_txt_file( path : &str ) -> String {
-    use std::fs::File;
-    use std::io::Read;
-
-    let mut file = File::open( path )
-        .expect( &format!( "Could not open file: {}", path ) );
-    let mut contents = String::new();
-    file.read_to_string( &mut contents ).unwrap();
-    contents
+fn read_txt_file(path: &str) -> String {
+    fs::read_to_string(path).unwrap_or_else(|_| panic!("Could not open file: {}", path))
 }
 
-
 fn main() {
-    let content: String = read_txt_file( "input.txt" );
+    let content: String = read_txt_file("input.txt");
+    let x: i64 = 0;
+    // count chars in content
+    let count = content.chars().count() as i64;
+
+    // multiply count by 10
+    println!("{} and {}", x, count);
     println!("{}", content);
 }
