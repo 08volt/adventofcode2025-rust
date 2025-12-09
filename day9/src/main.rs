@@ -63,7 +63,7 @@ fn main() {
     let segments: Vec<Segment> = (0..points.len())
         .map(|i| Segment::new(points[i], points[(i + 1) % points.len()]))
         .collect();
-
+dat 1-
     let mut max_area2 = 0;
 
     for (i, p1) in points.iter().enumerate() {
